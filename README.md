@@ -31,7 +31,8 @@ Not sure which one you have? Boot the game once, close RPCS3, and search `RPCS3.
 
 ## Installation
 
-1. Download [`imported_patch.yml`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/raw/main/imported_patch.yml).
+1. Download [`imported_patch.yml`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest/download/imported_patch.yml)
+   from the [latest release](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest).
 2. Place it in RPCS3's `patches` folder, keeping the name `imported_patch.yml`:
 
    | OS | Folder |
