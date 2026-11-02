@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3 (2026-11-02)
+
+- **No more freeze after eating at a restaurant.** After a meal (for example at Shirohebi Udon) the screen faded back in
+  after the experience points, but the shop dialogue never returned and the game was stuck (at 120 FPS it stuck earlier,
+  on the black screen). The meal's fades now run at the original speed and always finish. This affected every restaurant
+  meal in releases 1.0 to 1.2, with both the 60 FPS and the 120 FPS entries.
+  ([#3](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/3))
+
 ## 1.2 (2026-11-02)
 
 - **Cutscene slow motion stays in sync.** The three cutscenes with slow-motion moments (chapters 7 and 10, and one
