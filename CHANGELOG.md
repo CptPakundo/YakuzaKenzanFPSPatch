@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2 (2026-11-02)
+
+- **Cutscene slow motion stays in sync.** The three cutscenes with slow-motion moments (chapters 7 and 10, and one
+  substory) ended each slow-motion part slightly early, so the picture ran up to about 0.3 s ahead of the audio at
+  120 FPS. They now end on the same frame as in the original.
+- **Heat-action trails look right again.** Weapon and limb trails in heat actions were drawn too short and faded too fast
+  at 60/120 FPS. They now match the original.
+- **Quit fade back to normal.** Quitting to the title (or out of a minigame) from the pause menu faded to black over
+  1-2 s instead of 0.5 s.
+- **RPCS3 only.** Removed the entries for the English translation's real-PS3 EBOOT, matching the patch on the game's
+  RPCS3 wiki page, where @AniLeo had already trimmed them (a fair reminder that no PS3 was going to run this at 120 FPS
+  anyway). English translation users need the translation's RPCS3 EBOOT, see the README.
+
 ## 1.1 (2026-11-02)
 
 Fixes for the first two bug reports. Both apply to the 60 FPS and the 120 FPS entries.

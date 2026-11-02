@@ -23,9 +23,13 @@ then corrects the code that still counts frames: movement, AI, timers, effects, 
 
 | Game version | Executable hash | Entries to enable |
 |---|---|---|
-| English fan translation (RPCS3 `EBOOT.BIN`) | `PPU-5d3cde094c0be606290c4716da497bced59c1256` | `... (English translation)` |
-| English fan translation (PS3 `EBOOT PS3.BIN`) | `PPU-16d1a050a5938a95df8d76ebb298698007183e64` | `... (English translation, PS3 EBOOT)` |
+| English fan translation (RPCS3 EBOOT) | `PPU-5d3cde094c0be606290c4716da497bced59c1256` | `... (English translation)` |
 | Japanese original | `PPU-fc24101547eff0f4307d4f70a0cb76329f11a525` | `... (Japanese original)` |
+
+> [!NOTE]
+> **English translation users:** make sure you followed the translation's *Extra Steps (RPCS3 Only)*: rename `EBOOT.BIN`
+> to `EBOOT PS3.BIN`, then rename `EBOOT RPCS3.BIN` to `EBOOT.BIN`. The patch only applies to the RPCS3 EBOOT, not to
+> the real-PS3 one.
 
 Not sure which one you have? Boot the game once, close RPCS3, and search `RPCS3.log` for `PPU executable hash`.
 
@@ -84,12 +88,13 @@ original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry
 <summary>Full list</summary>
 
 - **Combat:** movement, strafing, turning, enemy AI (think rate, cooldowns, counter windows), heat gain and drain,
-  knockdown and stun durations, grabs, mash prompts, sword trails, hit effects
-- **Heat actions:** timeline speed, button and mash prompts, slow motion, finishing effects
-- **Cutscenes and events:** playback speed, talk cameras, skip timing, subtitles
+  knockdown and stun durations, grabs, mash prompts, sword slashes and afterimages, hit effects
+- **Heat actions:** timeline speed, button and mash prompts, slow motion, weapon and limb trails, finishing effects
+- **Cutscenes and events:** playback speed, slow-motion moments, chapter title cards, talk scenes (each plays once),
+  talk cameras, skip timing, subtitles
 - **Field:** NPC behaviour and crowds, talk arrows above NPCs, dropped items, grass, trees, wind, sea water, splashes,
   lights, particles, cloth, sound fades
-- **HUD and menus:** health and heat bars, text speed, result screens, map
+- **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade
 - **Minigames:** Bowling, Chohan, K Yabusame, Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika, Tousenkyo,
   Waterfall, plus scarecrow training and the minigames built into the main program. Hanafuda, Karuta and Chinchirorin
   already run at a fixed rate and need no patch.
@@ -98,9 +103,16 @@ original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry
 
 ## Known issues
 
-- Some timers can be off by less than 1/30 s after menus or dialogue.
-- A few fades and markers still update 30 times per second, as in the original, rather than being smoothed.
-- While dragging a grabbed enemy, the walk animation can switch up to 1/40 s early.
+- **Longer fades around loading.** Some fades to black at scene changes, for example before chapter-opening cutscenes,
+  can last up to about 2 s at 120 FPS (1 s at 60) instead of about 0.5 s. Purely cosmetic.
+- **Trails on regular attacks.** Some weapon and limb trails on normal attacks are shorter and fade faster than in the
+  original (the same trails in heat actions are fixed).
+- **Very slow storage.** If a cutscene voice line takes several seconds to load, it is skipped sooner than in the
+  original.
+- **Tiny timing differences.** Some timers can be off by less than 1/30 s after menus or dialogue; the walk animation
+  while dragging a grabbed enemy and one branch of two story heat actions can run up to 1/40 s early; the scarecrow
+  training dummies throw about 1-2% slower. A few fades and markers still update 30 times per second, as in the
+  original, rather than being smoothed.
 - Not every part of the game has been played with the patch yet. If something runs too fast or too slow compared with
   the original, please [open an issue](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues).
 
@@ -111,8 +123,10 @@ game crashed. A patch that loaded shows up in the log as `PAT: Applied patch (..
 
 - **Whatcookie**, for the earlier Kenzan 60 FPS canary patch that found the engine's native frame-rate switch
 - **FlexBy**, whose *Yakuza: Dead Souls* 60 FPS patch (same engine family) served as a reference
-- **The English translation team** (majDima, Arcodeaus, jurxd, PauseForTheCat, TheEdgyNerd and helpers)
-- **The [RPCS3](https://rpcs3.net) team**, for the emulator and its patch system
+- **The *Like a Dragon: Kenzan!* English Patch team** (majDima, Arcodeaus, jurxd, PauseForTheCat, TheEdgyNerd and helpers)
+- **The [RPCS3](https://rpcs3.net) team**, for the emulator and its patch system, and
+  **[AniLeo](https://github.com/AniLeo)** in particular, whose tidy-up of this patch on the game's RPCS3 wiki page was a
+  gentle reminder that a real PS3 was never going to hit 120 FPS anyway
 - **[Ghidra](https://github.com/NationalSecurityAgency/ghidra)** and **[GhidraMCP](https://github.com/bethington/ghidra-mcp)**,
   used for the analysis
 
