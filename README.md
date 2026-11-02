@@ -91,9 +91,9 @@ original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry
   knockdown and stun durations, grabs, mash prompts, sword slashes and afterimages, hit effects
 - **Heat actions:** timeline speed, button and mash prompts, slow motion, weapon and limb trails, finishing effects
 - **Cutscenes and events:** playback speed, slow-motion moments, chapter title cards, talk scenes (each plays once),
-  talk cameras, skip timing, subtitles
+  talk cameras, skip timing, movie skip fade-out, subtitles
 - **Field:** NPC behaviour and crowds, talk arrows above NPCs, dropped items, grass, trees, wind, sea water, splashes,
-  lights, particles, cloth, sound fades
+  rain splashes (on the ground and on characters in cutscenes), lights, particles, cloth, sound fades
 - **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade, restaurant meal and
   shop fades
 - **Minigames:** Bowling, Chohan, K Yabusame, Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika, Tousenkyo,
@@ -138,4 +138,4 @@ Developed with AI assistance (Claude by Anthropic).
 [MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team and contains
 no game files.
 
-<!-- readme-reviewed: 1.3 -->
+<!-- readme-reviewed: 1.4 -->

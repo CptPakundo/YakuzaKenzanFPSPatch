@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.4 (2026-11-02)
+
+- **No more crash in the chapter 2 opening cutscene at 120 FPS.** About four seconds into the rainy night cutscene that
+  opens chapter 2, the game ran out of memory for particle effects and RPCS3 stopped with "The PS3 application has
+  likely crashed". Rain splashes were created 4 times as often as in the original at 120 FPS (twice as often at 60 FPS),
+  so far more of them were alive at once. Rain splashes on the ground and on characters now appear at the original rate
+  at 60 and 120 FPS. As a safety net, if the effect memory ever fills up anyway, the game now skips that one particle
+  instead of crashing. Thanks to BeanButCoffee for the report, the logs and the save file.
+  ([#4](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/4))
+- **No more sound stutter when skipping a movie.** Skipping an FMV (for example the intro movie) could make the movie's
+  sound jump back up in short bursts while it faded out, heard as a stutter of about half a second. It happened on some
+  skips only, mostly at 120 FPS. This was a timing race in the original game's movie player, which 120 FPS made easy to
+  hit. The fade-out is now smooth. ([#4](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/4))
+
 ## 1.3 (2026-11-02)
 
 - **No more freeze after eating at a restaurant.** After a meal (for example at Shirohebi Udon) the screen faded back in
