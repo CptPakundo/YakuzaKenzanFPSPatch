@@ -1,5 +1,5 @@
 Version: 1.2
-# Ryu ga Gotoku Kenzan! (BLJM60064) - 60 FPS and 120 FPS patches for RPCS3, release 1.4
+# Ryu ga Gotoku Kenzan! (BLJM60064) - 60 FPS and 120 FPS patches for RPCS3, release 1.5
 # Author: Pakundo (made with AI assistance).
 # Install: see README.md at https://github.com/CptPakundo/YakuzaKenzanFPSPatch
 
@@ -6838,6 +6838,19 @@ Anchors:
     - [ be32, 0x00000000, 0x13e2000a ]
     - [ be32, 0x00000000, 0x42800008 ]
     - [ be32, 0x00000000, 0x13e21484 ]
+    - [ calloc, 0x000073e0, 12 ]
+    - [ be32, 0x00000000, 0x3d80002c ]
+    - [ be32, 0x00000000, 0x818c6400 ]
+    - [ be32, 0x00000000, 0x6d8c3800 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x4186000c ]
+    - [ be32, 0x00000000, 0x4fddf382 ]
+    - [ be32, 0x00000000, 0x42800018 ]
+    - [ be32, 0x00000000, 0x4fddf382 ]
+    - [ be32, 0x00000000, 0x819f0510 ]
+    - [ be32, 0x00000000, 0x2c8c0000 ]
+    - [ be32, 0x00000000, 0x40860008 ]
+    - [ be32, 0x00000000, 0x4fdef182 ]
 
   kenzan_umod_kamerace: &kenzan_umod_kamerace
     - [ calloc, 0x00004630, 11 ]
@@ -12002,6 +12015,51 @@ Anchors:
     - [ be32, 0x00000000, 0xfd8b6028 ]
     - [ be32, 0x00000000, 0xfd806018 ]
     - [ be32, 0x00000000, 0xc961fee8 ]
+    - [ calloc, 0x00007f78, 44 ]
+    - [ be32, 0x00000000, 0x3d80002c ]
+    - [ be32, 0x00000000, 0x818c6400 ]
+    - [ be32, 0x00000000, 0x6d8c3800 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x4186000c ]
+    - [ be32, 0x00000000, 0x1007500a ]
+    - [ be32, 0x00000000, 0x42800098 ]
+    - [ be32, 0x00000000, 0x1007500a ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0128 ]
+    - [ be32, 0x00000000, 0x396b000a ]
+    - [ be32, 0x00000000, 0x1d6b0889 ]
+    - [ be32, 0x00000000, 0x556b843e ]
+    - [ be32, 0x00000000, 0x288b0001 ]
+    - [ be32, 0x00000000, 0x40850074 ]
+    - [ be32, 0x00000000, 0x818c0014 ]
+    - [ be32, 0x00000000, 0x380bffff ]
+    - [ be32, 0x00000000, 0x7d8c0038 ]
+    - [ be32, 0x00000000, 0x7d600034 ]
+    - [ be32, 0x00000000, 0x2000001f ]
+    - [ be32, 0x00000000, 0x5400b810 ]
+    - [ be32, 0x00000000, 0x3d603eab ]
+    - [ be32, 0x00000000, 0x396baaab ]
+    - [ be32, 0x00000000, 0x7d605850 ]
+    - [ be32, 0x00000000, 0x9161fef0 ]
+    - [ be32, 0x00000000, 0xc1a1fef0 ]
+    - [ be32, 0x00000000, 0x2c8c0000 ]
+    - [ be32, 0x00000000, 0x4086001c ]
+    - [ be32, 0x00000000, 0x3d603eab ]
+    - [ be32, 0x00000000, 0x396baaab ]
+    - [ be32, 0x00000000, 0x9161fef4 ]
+    - [ be32, 0x00000000, 0xc181fef4 ]
+    - [ be32, 0x00000000, 0xedad6028 ]
+    - [ be32, 0x00000000, 0x42800010 ]
+    - [ be32, 0x00000000, 0x398e0180 ]
+    - [ be32, 0x00000000, 0x798c0020 ]
+    - [ be32, 0x00000000, 0x7c0060ce ]
+    - [ be32, 0x00000000, 0x3981fee0 ]
+    - [ be32, 0x00000000, 0x7c0061ce ]
+    - [ be32, 0x00000000, 0xc18c0004 ]
+    - [ be32, 0x00000000, 0xed8c682a ]
+    - [ be32, 0x00000000, 0xd18c0004 ]
+    - [ be32, 0x00000000, 0x7c0060ce ]
 
   kenzan_umod_waterfall: &kenzan_umod_waterfall
     - [ calloc, 0x00001bcc, 26 ]
@@ -15056,7 +15114,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -15084,7 +15142,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto or Off; with VSync on you need a 120 Hz or faster display. The PC must hold 120 FPS, otherwise the whole game slows down. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -15116,7 +15174,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -15144,7 +15202,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto or Off; with VSync on you need a 120 Hz or faster display. The PC must hold 120 FPS, otherwise the whole game slows down. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -15175,7 +15233,7 @@ PRX-XNsmitgPz606vtCkLvNb8vRvX9AF-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Bowling minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_bowling ]
 
@@ -15186,7 +15244,7 @@ PRX-57ReVTFerxWmSMgFHwTLYK4rjE1N-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -15197,7 +15255,7 @@ PRX-pP9Zham087p826Hk70sKYJNoWxNT-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -15208,7 +15266,7 @@ PRX-Fb3bdNkcwgfGuYmvGYiF3TWA6fEY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the K Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_k_yabusame ]
 
@@ -15219,7 +15277,7 @@ PRX-f0weu6khULxCVGx8fEbbe53HUzkX-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -15230,7 +15288,7 @@ PRX-q1mrtRRcGyttZZiTxXhuwoodrPe5-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -15241,7 +15299,7 @@ PRX-4v6vfey8tm0ryYnm9b7gzn4Q87Sw-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Konpira minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_konpira ]
 
@@ -15252,7 +15310,7 @@ PRX-En8J3J0VsXy9TvwcM1jGqctFMkCt-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -15263,7 +15321,7 @@ PRX-LvLdxikYP1gQX8TTqVvKaE2tVcQi-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -15274,7 +15332,7 @@ PRX-NoNkQEKqhGXQmXQ7wKsPv3Udbex4-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -15285,7 +15343,7 @@ PRX-3yKqt7eQKhq2WZVdcXj8YE88MVqC-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -15296,7 +15354,7 @@ PRX-hcwkop8vL1Hgbu1xbrkGggHY6gUh-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Shogi minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_shogi ]
 
@@ -15307,7 +15365,7 @@ PRX-6GfRq3LKHpxje21A6KHe3CR7SgCV-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -15318,7 +15376,7 @@ PRX-QtVvdP5YjaG64gjKoS7dFRAVKv0o-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -15329,7 +15387,7 @@ PRX-EHCcuPoQZxcMdSpUNZt9GKq371uf-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -15340,7 +15398,7 @@ PRX-Jf80yvVjKj88TgYSZkQCUHfoikfY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -15351,7 +15409,7 @@ PRX-Lv45WFxmsAjTCrVkMM2P41jSYRkM-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
@@ -15362,6 +15420,6 @@ PRX-foe287TiG5SLPPJqJCntzuVYUo94-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.4
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_waterfall ]

@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.5 (2026-11-02)
+
+- **Fan Toss: the fan flies as far as in the original.** In the Tousenkyo (fan toss) minigame at Azamiya, thrown fans
+  lost their speed and dropped short at 60 FPS, and almost on the spot at 120 FPS, so they rarely reached the target.
+  The minigame applies the fan's air resistance and lift once per physics step, which happened 2 or 4 times as often
+  per second as in the original. They now act at the original rate, so a throw follows the same path as at 30 FPS.
+  Thanks to Kyouma00001 for the report and the save file. ([#5](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/5))
+- **No more crash in Jiraiya training.** Throwing a shuriken in the K Yabusame minigame crashed the game at 60 and
+  120 FPS. At the higher frame rate the throw animation could trigger a second throw right after the first one, when
+  there was no shuriken in hand any more. A throw now only happens with a shuriken in hand, as in the original.
+  Thanks to detect-henlo for the report and the log. ([#6](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/6))
+
 ## 1.4 (2026-11-02)
 
 - **No more crash in the chapter 2 opening cutscene at 120 FPS.** About four seconds into the rainy night cutscene that

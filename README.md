@@ -96,8 +96,8 @@ original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry
   rain splashes (on the ground and on characters in cutscenes), lights, particles, cloth, sound fades
 - **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade, restaurant meal and
   shop fades
-- **Minigames:** Bowling, Chohan, K Yabusame, Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika, Tousenkyo,
-  Waterfall, plus scarecrow training and the minigames built into the main program. Hanafuda, Karuta and Chinchirorin
+- **Minigames:** Bowling, Chohan, K Yabusame (Jiraiya training), Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika,
+  Tousenkyo (including the fan's flight), Waterfall, plus scarecrow training and the minigames built into the main program. Hanafuda, Karuta and Chinchirorin
   already run at a fixed rate and need no patch.
 
 </details>
@@ -138,4 +138,4 @@ Developed with AI assistance (Claude by Anthropic).
 [MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team and contains
 no game files.
 
-<!-- readme-reviewed: 1.4 -->
+<!-- readme-reviewed: 1.5 -->
