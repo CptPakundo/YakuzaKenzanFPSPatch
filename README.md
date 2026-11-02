@@ -137,3 +137,5 @@ Developed with AI assistance (Claude by Anthropic).
 
 [MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team and contains
 no game files.
+
+<!-- readme-reviewed: 1.3 -->
