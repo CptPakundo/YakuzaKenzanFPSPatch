@@ -94,7 +94,8 @@ original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry
   talk cameras, skip timing, subtitles
 - **Field:** NPC behaviour and crowds, talk arrows above NPCs, dropped items, grass, trees, wind, sea water, splashes,
   lights, particles, cloth, sound fades
-- **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade
+- **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade, restaurant meal and
+  shop fades
 - **Minigames:** Bowling, Chohan, K Yabusame, Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika, Tousenkyo,
   Waterfall, plus scarecrow training and the minigames built into the main program. Hanafuda, Karuta and Chinchirorin
   already run at a fixed rate and need no patch.
