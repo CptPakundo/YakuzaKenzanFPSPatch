@@ -77,7 +77,8 @@ Right-click the game → **Create Custom Configuration**, then set:
 
 > [!IMPORTANT]
 > Your PC has to hold a steady 120 FPS. Kenzan runs its logic once per frame, so frame drops slow the whole game down
-> instead of skipping frames. Lowering the resolution scale helps the most.
+> instead of skipping frames. The same applies to the 60 FPS entry at 60 FPS. Very crowded places, such as the Gion festival
+> at night, are the hardest, and there the limit is the emulated graphics work, so a lower resolution scale may not help.
 
 Menus, dialogue and the start of heat actions run at 60 FPS and a few cutscenes at 20 or 30 FPS, exactly as in the
 original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry instead.
@@ -138,4 +139,4 @@ Developed with AI assistance (Claude by Anthropic).
 [MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team and contains
 no game files.
 
-<!-- readme-reviewed: 1.5 -->
+<!-- readme-reviewed: 1.6 -->

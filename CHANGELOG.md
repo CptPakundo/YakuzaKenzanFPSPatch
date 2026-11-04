@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.6 (2026-11-04)
+
+- **Suika (Iaigiri Spirit Tempering) no longer crashes when it starts.** When RPCS3 compiled the minigames in the
+  background, it could damage the first function of a minigame in its cache, which crashed Suika right after talking to the
+  trainer. The patch now keeps that function intact in all 11 patched minigames. Thanks to RubrumRedEX and detect-henlo for
+  the reports, logs and testing. ([#7](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/7))
+- **The frame rate no longer drops to 30 after a Revelation in Spirit Tempering.** The original game forgets to undo one
+  frame rate change at the end of that demo. That is invisible at 30 FPS, but with the patch the game stayed at 30 until
+  a restart. This fix comes from reading the game's code and has not been played through yet. Thanks to MrAdam36 for the
+  report. ([#9](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/9))
+
 ## 1.5 (2026-11-02)
 
 - **Fan Toss: the fan flies as far as in the original.** In the Tousenkyo (fan toss) minigame at Azamiya, thrown fans
