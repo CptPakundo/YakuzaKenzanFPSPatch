@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.7 (2026-11-05)
+
+- **Support for patch 6 of the [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch).** Patch 6 has a new EBOOT, so the frame-rate entries did not
+  apply to it and the game stayed at 30 FPS. The `(English translation)` entries now cover patch 6 as well as the initial
+  release. RPCS3 lists them once per hash, so tick the line ending in your hash, or both. The minigame entries needed no change,
+  because patch 6 did not change the minigames. Thanks to Sheev_Approves66 for the report. ([#11](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/11))
+- **The game's 20 FPS cutscene sections now run at 60 FPS.** Six cutscenes drop to 20 FPS for a while, about a minute of the whole
+  game, and the longest is Morning After in chapter 8. They now run at 60 FPS on both the 60 and the 120 entry, with the same
+  cutscene timing. Effects in those seconds run at the pace of the rest of the cutscene, a little faster than the original did
+  there.
+- **Doors open again.** The sliding door at Tatsuya did not open at 60 or 120 FPS. The original game stores a door's progress as
+  a whole percentage, and at higher frame rates each frame adds too little to survive the rounding. The fix covers all such scene
+  animations, including other doors such as the one at Tsuruya. The Tatsuya door was tested at 60 and 120 FPS; the others come from
+  reading the game's files. Thanks to SK91no for the report and the videos.
+  ([#10](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/10))
+- **New optional file: `sh_iori_ps3.par`.** It removes the grid pattern that Depth of Field leaves on blurred backgrounds at high
+  resolution. See the README for what it does and how to install it.
+- **README:** added a "Frame rate still 30?" section and corrected the 120 FPS setup: Framerate Limiter must be Auto, not Off.
+
 ## 1.6 (2026-11-04)
 
 - **Suika (Iaigiri Spirit Tempering) no longer crashes when it starts.** When RPCS3 compiled the minigames in the

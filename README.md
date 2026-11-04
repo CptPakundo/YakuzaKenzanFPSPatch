@@ -17,13 +17,16 @@ then corrects the code that still counts frames: movement, AI, timers, effects, 
 - **120 FPS** for high-refresh displays (needs one setting, see below)
 - Gameplay speed matches the original 30 FPS game, including enemy AI, heat gain, button prompts and cutscene timing
 - Separate fixes for 11 minigames
-- Works with the **English fan translation** and the **Japanese original**
+- Works with the **[English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch)**, including **patch 6**, and the **Japanese original**
+- The game's 20 FPS cutscene sections run at **60 FPS**, with their timing unchanged
+- Optional replacement shader that cleans up Depth of Field at high resolution
 
 ## Supported versions
 
 | Game version | Executable hash | Entries to enable |
 |---|---|---|
-| English fan translation (RPCS3 EBOOT) | `PPU-5d3cde094c0be606290c4716da497bced59c1256` | `... (English translation)` |
+| [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch) patch 6 (RPCS3 EBOOT) | `PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6` | `... (English translation)` |
+| English fan translation, initial release (RPCS3 EBOOT) | `PPU-5d3cde094c0be606290c4716da497bced59c1256` | `... (English translation)` |
 | Japanese original | `PPU-fc24101547eff0f4307d4f70a0cb76329f11a525` | `... (Japanese original)` |
 
 > [!NOTE]
@@ -31,7 +34,30 @@ then corrects the code that still counts frames: movement, AI, timers, effects, 
 > to `EBOOT PS3.BIN`, then rename `EBOOT RPCS3.BIN` to `EBOOT.BIN`. The patch only applies to the RPCS3 EBOOT, not to
 > the real-PS3 one.
 
-Not sure which one you have? Boot the game once, close RPCS3, and search `RPCS3.log` for `PPU executable hash`.
+> [!NOTE]
+> Game Patches shows the English `60 FPS` and `120 FPS` entries twice, once per hash, with the hash added to the name. Tick the
+> one ending in your hash, or both: only the matching one applies.
+
+Other English mods and other builds of the translation have a different hash, so the frame-rate entries will not apply to them.
+
+Not sure which one you have? Boot the game once, close RPCS3, and search `log\RPCS3.log` for `PPU executable hash`. Use the
+file rather than RPCS3's log window, which can hide that line.
+
+<details>
+<summary><b>Frame rate still 30?</b></summary>
+
+The game's hash has to match one of the rows above. Game Patches lists every entry whether it matches or not, so ticking one
+proves nothing. Check that:
+
+1. `RPCS3.log` shows `PAT: Applied patch` with `60 FPS (...)` or `120 FPS (...)`. Only that line counts. Minigame lines appear
+   only after a recompile or when you enter that minigame, so they say nothing about the frame rate.
+2. The `PPU executable hash` line matches a row above, and you ticked that row's entries.
+3. If the hash is not in the table, you have a different build. Please open an issue with that hash and where your English
+   patch came from.
+
+Clearing RPCS3's caches does not help with this.
+
+</details>
 
 ## Installation
 
@@ -72,7 +98,7 @@ Right-click the game → **Create Custom Configuration**, then set:
 | Setting | Value |
 |---|---|
 | Advanced → Vblank Rate | **120** (required, otherwise the game runs at half speed) |
-| GPU → Framerate Limiter | Auto or Off |
+| GPU → Framerate Limiter | **Auto** (Off lets the game run far too fast) |
 | VSync | On only with a 120 Hz+ display, otherwise Off |
 
 > [!IMPORTANT]
@@ -80,8 +106,27 @@ Right-click the game → **Create Custom Configuration**, then set:
 > instead of skipping frames. The same applies to the 60 FPS entry at 60 FPS. Very crowded places, such as the Gion festival
 > at night, are the hardest, and there the limit is the emulated graphics work, so a lower resolution scale may not help.
 
-Menus, dialogue and the start of heat actions run at 60 FPS and a few cutscenes at 20 or 30 FPS, exactly as in the
-original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry instead.
+Menus, dialogue and the start of heat actions run at 60 FPS, exactly as in the original game. The sections of six cutscenes
+that the original drops to 20 FPS run at 60 FPS: they are heavy scenes, and at 120 FPS the picture fell behind the sound. A few
+short sections stay at 30 FPS as in the original, including the Revelation after Spirit Tempering. To switch back, set
+Vblank Rate to 60 and enable the 60 FPS entry instead.
+
+## Optional: cleaner Depth of Field at high resolution
+
+At a high Resolution Scale, the game's Depth of Field blur leaves a fine grid pattern on blurred backgrounds and crowds in
+cutscenes. The blur takes its samples a fixed distance apart, and that spacing shows up as a mesh once the image is sharp enough.
+
+`sh_iori_ps3.par` replaces the game's shader file with a copy in which that one blur shader is rewritten. Depth of Field stays
+on and the grid goes away. It changes 1 of the file's 180 shaders and works with or without the frame-rate entries. It is
+tested on the English translation at 300% Resolution Scale.
+
+1. Download [`sh_iori_ps3.par`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest/download/sh_iori_ps3.par)
+   from the [latest release](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest).
+2. In your game folder, go to `PS3_GAME/USRDIR/bin/shader/` and make a backup of `sh_iori_ps3.par`.
+3. Copy the downloaded file over it.
+
+To undo it, restore your backup. Reinstalling the game puts the original back. This file is separate from the patch: nothing
+in `imported_patch.yml` needs it.
 
 ## What gets corrected
 
@@ -92,9 +137,10 @@ original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry
   knockdown and stun durations, grabs, mash prompts, sword slashes and afterimages, hit effects
 - **Heat actions:** timeline speed, button and mash prompts, slow motion, weapon and limb trails, finishing effects
 - **Cutscenes and events:** playback speed, slow-motion moments, chapter title cards, talk scenes (each plays once),
-  talk cameras, skip timing, movie skip fade-out, subtitles
+  talk cameras, skip timing, movie skip fade-out, subtitles, the 20 FPS sections
 - **Field:** NPC behaviour and crowds, talk arrows above NPCs, dropped items, grass, trees, wind, sea water, splashes,
-  rain splashes (on the ground and on characters in cutscenes), lights, particles, cloth, sound fades
+  rain splashes (on the ground and on characters in cutscenes), lights, particles, cloth, sound fades, doors and other
+  animated scene parts
 - **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade, restaurant meal and
   shop fades
 - **Minigames:** Bowling, Chohan, K Yabusame (Jiraiya training), Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika,
@@ -115,6 +161,10 @@ original game. To switch back, set Vblank Rate to 60 and enable the 60 FPS entry
   while dragging a grabbed enemy and one branch of two story heat actions can run up to 1/40 s early; the scarecrow
   training dummies throw about 1-2% slower. A few fades and markers still update 30 times per second, as in the
   original, rather than being smoothed.
+- **Effects in the former 20 FPS cutscene sections** run at the same pace as the rest of the cutscene, which is 1.5x what the
+  original did in those seconds.
+- **VRR displays.** Frame times vary slightly, and some OLED panels show this as flicker, especially when the frame rate
+  changes.
 - Not every part of the game has been played with the patch yet. If something runs too fast or too slow compared with
   the original, please [open an issue](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues).
 
@@ -125,7 +175,7 @@ game crashed. A patch that loaded shows up in the log as `PAT: Applied patch (..
 
 - **Whatcookie**, for the earlier Kenzan 60 FPS canary patch that found the engine's native frame-rate switch
 - **FlexBy**, whose *Yakuza: Dead Souls* 60 FPS patch (same engine family) served as a reference
-- **The *Like a Dragon: Kenzan!* English Patch team** (majDima, Arcodeaus, jurxd, PauseForTheCat, TheEdgyNerd and helpers)
+- **The [*Like a Dragon: Kenzan!* English Patch](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch) team** (majDima, Arcodeaus, jurxd, PauseForTheCat, TheEdgyNerd and helpers)
 - **The [RPCS3](https://rpcs3.net) team**, for the emulator and its patch system, and
   **[AniLeo](https://github.com/AniLeo)** in particular, whose tidy-up of this patch on the game's RPCS3 wiki page was a
   gentle reminder that a real PS3 was never going to hit 120 FPS anyway
@@ -136,7 +186,8 @@ Developed with AI assistance (Claude by Anthropic).
 
 ## License
 
-[MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team and contains
-no game files.
+[MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team. The patch
+contains no game files. The optional `sh_iori_ps3.par` is a modified copy of the game's shader file: it is not covered by the
+MIT license, and you need your own copy of the game.
 
-<!-- readme-reviewed: 1.6 -->
+<!-- readme-reviewed: 1.7 -->
