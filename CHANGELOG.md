@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.0 (release candidate)
+
+- **Game speed stays correct when the frame rate drops.** The game used to run its logic once per drawn frame, so any frame drop slowed
+  everything down, a big reason why the Gion festival at night felt sluggish at 120 FPS. Logic now runs at a fixed rate on both entries,
+  and when your PC falls behind, the game draws fewer frames instead, down to about 30 FPS. This works as long as your PC keeps up with
+  the logic itself. On a PC that cannot, the game still slows down: use the 60 FPS entry. It does not raise the frame rate.
+- **All 14 minigames run at the full rate, with their logic and physics corrected.** New: Hanafuda, Karuta and Tintiro, and full rate for
+  Mahjong, Shogi and Suika. They also keep their speed when frames drop, like the rest of the game. In Waterfall this keeps the notes on
+  the music. Falling target pieces in K Yabusame no longer fly about 16 times too far at 120 FPS. A few motions step 60 times a second.
+- **The Revelation after Spirit Tempering runs at the full rate.**
+- **A sharper picture at any Resolution Scale.** The game's last pass offset the frame by half a pixel with filtering on, a 2x2 blur of
+  every frame. The patch removes the offset. No effect is removed and no sharpening is added.
+- **`sh_iori_ps3.par`:** the optional file now also corrects the edge filter in the game's colour grade, which was set for 1280x720 and
+  reached three times too far at 300%. It now reaches one real pixel at any Resolution Scale.
+- **The game's 20 FPS cutscene sections run at the full frame rate of your entry,** with the same cutscene timing. 1.7 held them at 60 FPS.
+- **Fades run at their original length.** Some fades ran for 2 s instead of 0.5 s at 120 FPS, and the fade-in on entering free roam ran at
+  30 FPS. Short fade-ins after talk missions are longer again, as in the original.
+- **Menus and banners keep their speed when frames are skipped.**
+- **The English entries also cover patch 6's real-PS3 EBOOT,** `PPU-7bdd22e8...`, not tested in RPCS3.
+
 ## 1.7 (2026-11-05)
 
 - **Support for patch 6 of the [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch).** Patch 6 has a new EBOOT, so the frame-rate entries did not

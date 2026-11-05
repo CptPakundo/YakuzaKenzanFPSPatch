@@ -16,10 +16,12 @@ then corrects the code that still counts frames: movement, AI, timers, effects, 
 - **60 FPS** with no extra emulator settings
 - **120 FPS** for high-refresh displays (needs one setting, see below)
 - Gameplay speed matches the original 30 FPS game, including enemy AI, heat gain, button prompts and cutscene timing
-- Separate fixes for 11 minigames
+- Fixes for all 14 minigames, with the logic and physics of each corrected for 60 and 120 FPS
 - Works with the **[English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch)**, including **patch 6**, and the **Japanese original**
-- The game's 20 FPS cutscene sections run at **60 FPS**, with their timing unchanged
-- Optional replacement shader that cleans up Depth of Field at high resolution
+- The game's 20 FPS cutscene sections run at the **full frame rate**, with their timing unchanged
+- **Game speed stays correct when the frame rate drops**, as long as your PC keeps up
+- **A sharper picture at any Resolution Scale:** the game no longer blurs its own finished frame
+- Optional replacement shader that cleans up Depth of Field and corrects an edge filter at high resolution
 
 ## Supported versions
 
@@ -31,8 +33,8 @@ then corrects the code that still counts frames: movement, AI, timers, effects, 
 
 > [!NOTE]
 > **English translation users:** make sure you followed the translation's *Extra Steps (RPCS3 Only)*: rename `EBOOT.BIN`
-> to `EBOOT PS3.BIN`, then rename `EBOOT RPCS3.BIN` to `EBOOT.BIN`. The patch only applies to the RPCS3 EBOOT, not to
-> the real-PS3 one.
+> to `EBOOT PS3.BIN`, then rename `EBOOT RPCS3.BIN` to `EBOOT.BIN`. The English entries also cover patch 6's real-PS3 EBOOT,
+> `PPU-7bdd22e8...`, but that one has not been tested in RPCS3.
 
 > [!NOTE]
 > Game Patches shows the English `60 FPS` and `120 FPS` entries twice, once per hash, with the hash added to the name. Tick the
@@ -102,23 +104,26 @@ Right-click the game → **Create Custom Configuration**, then set:
 | VSync | On only with a 120 Hz+ display, otherwise Off |
 
 > [!IMPORTANT]
-> Your PC has to hold a steady 120 FPS. Kenzan runs its logic once per frame, so frame drops slow the whole game down
-> instead of skipping frames. The same applies to the 60 FPS entry at 60 FPS. Very crowded places, such as the Gion festival
-> at night, are the hardest, and there the limit is the emulated graphics work, so a lower resolution scale may not help.
+> Kenzan runs its logic once per frame, so in earlier versions a frame drop slowed the whole game down. Since 2.0 the game keeps
+> its speed by drawing fewer frames when your PC falls behind, down to about 30 FPS. That helps as long as your PC keeps up with
+> the game logic itself. If it cannot, the game slows down, and in cutscenes the picture falls behind the sound.
+>
+> **On a weaker PC, use the 60 FPS entry.** It asks much less of your CPU. Very crowded places, such as the Gion festival at
+> night, are the hardest, and there the limit is the emulated graphics work, so a lower resolution scale may not help.
 
-Menus, dialogue and the start of heat actions run at 60 FPS, exactly as in the original game. The sections of six cutscenes
-that the original drops to 20 FPS run at 60 FPS: they are heavy scenes, and at 120 FPS the picture fell behind the sound. A few
-short sections stay at 30 FPS as in the original, including the Revelation after Spirit Tempering. To switch back, set
-Vblank Rate to 60 and enable the 60 FPS entry instead.
+Menus, dialogue and the start of heat actions run at 60 FPS, exactly as in the original game. The sections of six cutscenes that
+the original drops to 20 FPS run at the full frame rate of your entry. To switch back, set Vblank Rate to 60 and enable the 60 FPS
+entry instead.
 
-## Optional: cleaner Depth of Field at high resolution
+## Optional: cleaner Depth of Field and edges at high resolution
 
-At a high Resolution Scale, the game's Depth of Field blur leaves a fine grid pattern on blurred backgrounds and crowds in
+The game has an edge filter in its colour grade, set for 1280x720, so at a high Resolution Scale it reaches too far and softens
+every edge. This file makes it reach one real pixel at any scale. The filter stays. At a high Resolution Scale, the game's Depth of Field blur also leaves a fine grid pattern on blurred backgrounds and crowds in
 cutscenes. The blur takes its samples a fixed distance apart, and that spacing shows up as a mesh once the image is sharp enough.
 
-`sh_iori_ps3.par` replaces the game's shader file with a copy in which that one blur shader is rewritten. Depth of Field stays
-on and the grid goes away. It changes 1 of the file's 180 shaders and works with or without the frame-rate entries. It is
-tested on the English translation at 300% Resolution Scale.
+`sh_iori_ps3.par` replaces the game's shader file with a copy in which those shaders are rewritten. Depth of Field stays on and
+the grid goes away. It changes 50 of the file's 180 shaders and works with or without the frame-rate entries. It is tested on the
+English translation: the edge filter at 100% and 300%, the Depth of Field blur at 300%.
 
 1. Download [`sh_iori_ps3.par`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest/download/sh_iori_ps3.par)
    from the [latest release](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest).
@@ -143,9 +148,9 @@ in `imported_patch.yml` needs it.
   animated scene parts
 - **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade, restaurant meal and
   shop fades
-- **Minigames:** Bowling, Chohan, K Yabusame (Jiraiya training), Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika,
-  Tousenkyo (including the fan's flight), Waterfall, plus scarecrow training and the minigames built into the main program. Hanafuda, Karuta and Chinchirorin
-  already run at a fixed rate and need no patch.
+- **Minigames:** Bowling, Chohan, Hanafuda, K Yabusame (Jiraiya training), Kamerace, Karuta, Konpira, Mahjong, R Yabusame, Shogi,
+  Suika, Tintiro (Chinchirorin), Tousenkyo (including the fan's flight), Waterfall, plus scarecrow training and the minigames built
+  into the main program.
 
 </details>
 
@@ -163,8 +168,10 @@ in `imported_patch.yml` needs it.
   original, rather than being smoothed.
 - **Effects in the former 20 FPS cutscene sections** run at the same pace as the rest of the cutscene, which is 1.5x what the
   original did in those seconds.
-- **VRR displays.** Frame times vary slightly, and some OLED panels show this as flicker, especially when the frame rate
-  changes.
+- **VRR displays.** Since 2.0 the game no longer slows down when the frame rate moves around, so VRR works much better. Frame
+  times still vary slightly, and some OLED panels show this as flicker, especially when the frame rate changes.
+- **Short stutters are not fully absorbed.** A stall longer than about 50 ms still costs time. If something else on your PC is
+  using all your CPU cores, you can see this as brief slow motion.
 - Not every part of the game has been played with the patch yet. If something runs too fast or too slow compared with
   the original, please [open an issue](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues).
 
@@ -190,4 +197,4 @@ Developed with AI assistance (Claude by Anthropic).
 contains no game files. The optional `sh_iori_ps3.par` is a modified copy of the game's shader file: it is not covered by the
 MIT license, and you need your own copy of the game.
 
-<!-- readme-reviewed: 1.7 -->
+<!-- readme-reviewed: 2.0 -->
