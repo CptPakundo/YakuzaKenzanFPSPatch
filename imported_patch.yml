@@ -19931,7 +19931,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
-    Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. If the frame rate drops, game speed stays correct as long as the PC keeps up. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
+    Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60core ]
@@ -19961,7 +19961,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
-    Notes: "Runs the game at up to 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto (Off runs the game too fast); with VSync on you need a 120 Hz or faster display. If the frame rate drops, game speed stays correct as long as the PC keeps up; on a PC that cannot keep up, the game slows down. Weaker PCs should use the 60 FPS entry. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
+    Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60core ]
@@ -19992,7 +19992,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Removes the blur the game adds to every finished frame, the grid on blurred backgrounds and the over-wide edge filter, at any Resolution Scale. It edits the game shaders as they load, so no file needs copying (a copied sh_iori_ps3.par from earlier releases is left as it is). Works with or without the frame-rate entries."
+    Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60_image ]
@@ -20004,7 +20004,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
-    Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. If the frame rate drops, game speed stays correct as long as the PC keeps up. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
+    Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60core ]
@@ -20034,7 +20034,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
-    Notes: "Runs the game at up to 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto (Off runs the game too fast); with VSync on you need a 120 Hz or faster display. If the frame rate drops, game speed stays correct as long as the PC keeps up; on a PC that cannot keep up, the game slows down. Weaker PCs should use the 60 FPS entry. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
+    Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60core ]
@@ -20065,7 +20065,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Removes the blur the game adds to every finished frame, the grid on blurred backgrounds and the over-wide edge filter, at any Resolution Scale. It edits the game shaders as they load, so no file needs copying (a copied sh_iori_ps3.par from earlier releases is left as it is). Works with or without the frame-rate entries."
+    Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60_image ]
@@ -20077,7 +20077,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
-    Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. If the frame rate drops, game speed stays correct as long as the PC keeps up. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
+    Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60core ]
@@ -20107,7 +20107,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
-    Notes: "Runs the game at up to 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto (Off runs the game too fast); with VSync on you need a 120 Hz or faster display. If the frame rate drops, game speed stays correct as long as the PC keeps up; on a PC that cannot keep up, the game slows down. Weaker PCs should use the 60 FPS entry. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
+    Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60core ]
@@ -20138,7 +20138,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Removes the blur the game adds to every finished frame, the grid on blurred backgrounds and the over-wide edge filter, at any Resolution Scale. It edits the game shaders as they load, so no file needs copying (a copied sh_iori_ps3.par from earlier releases is left as it is). Works with or without the frame-rate entries."
+    Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan60_image ]
@@ -20149,7 +20149,7 @@ PRX-XNsmitgPz606vtCkLvNb8vRvX9AF-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Bowling minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Bowling at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_bowling ]
@@ -20160,7 +20160,7 @@ PRX-57ReVTFerxWmSMgFHwTLYK4rjE1N-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Chohan at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_chohan ]
@@ -20171,7 +20171,7 @@ PRX-pP9Zham087p826Hk70sKYJNoWxNT-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Chohan at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_chohan ]
@@ -20182,7 +20182,7 @@ PRX-Zq84zhToR1cemAoszdAdkosWHzT3-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Hanafuda minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Hanafuda at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_hanafuda ]
@@ -20193,7 +20193,7 @@ PRX-7MHf08G4xrd3gmrCasguaj2kNcv5-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Hanafuda minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Hanafuda at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_hanafuda ]
@@ -20204,7 +20204,7 @@ PRX-Fb3bdNkcwgfGuYmvGYiF3TWA6fEY-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the K Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps K Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_k_yabusame ]
@@ -20215,7 +20215,7 @@ PRX-f0weu6khULxCVGx8fEbbe53HUzkX-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Kamerace at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_kamerace ]
@@ -20226,7 +20226,7 @@ PRX-q1mrtRRcGyttZZiTxXhuwoodrPe5-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Kamerace at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_kamerace ]
@@ -20237,7 +20237,7 @@ PRX-1r1tJahTswJr9SPAkSsSUFhNnkht-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Karuta minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Karuta at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_karuta ]
@@ -20248,7 +20248,7 @@ PRX-P6pH1m5azsvnJupM17sCJmtkkcpc-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Karuta minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Karuta at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_karuta ]
@@ -20259,7 +20259,7 @@ PRX-4v6vfey8tm0ryYnm9b7gzn4Q87Sw-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Konpira minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Konpira at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_konpira ]
@@ -20270,7 +20270,7 @@ PRX-En8J3J0VsXy9TvwcM1jGqctFMkCt-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Mahjong at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_mahjong ]
@@ -20281,7 +20281,7 @@ PRX-LvLdxikYP1gQX8TTqVvKaE2tVcQi-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Mahjong at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_mahjong ]
@@ -20292,7 +20292,7 @@ PRX-NoNkQEKqhGXQmXQ7wKsPv3Udbex4-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps R Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
@@ -20303,7 +20303,7 @@ PRX-3yKqt7eQKhq2WZVdcXj8YE88MVqC-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps R Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
@@ -20314,7 +20314,7 @@ PRX-hcwkop8vL1Hgbu1xbrkGggHY6gUh-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Shogi minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Shogi at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_shogi ]
@@ -20325,7 +20325,7 @@ PRX-6GfRq3LKHpxje21A6KHe3CR7SgCV-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Suika at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_suika ]
@@ -20336,7 +20336,7 @@ PRX-QtVvdP5YjaG64gjKoS7dFRAVKv0o-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Suika at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_suika ]
@@ -20347,7 +20347,7 @@ PRX-cEj0e7sMFHxSVQ2f5xUPAS7ggdNs-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Tintiro minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Tintiro at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_tintiro ]
@@ -20358,7 +20358,7 @@ PRX-0yAWALGFWLRjJ9buNpAjfagrFP67-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Tintiro minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Tintiro at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_tintiro ]
@@ -20369,7 +20369,7 @@ PRX-EHCcuPoQZxcMdSpUNZt9GKq371uf-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Tousenkyo at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
@@ -20380,7 +20380,7 @@ PRX-Jf80yvVjKj88TgYSZkQCUHfoikfY-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Tousenkyo at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
@@ -20391,7 +20391,7 @@ PRX-Lv45WFxmsAjTCrVkMM2P41jSYRkM-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Waterfall at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_waterfall ]
@@ -20402,7 +20402,7 @@ PRX-foe287TiG5SLPPJqJCntzuVYUo94-0:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
-    Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
+    Notes: "Keeps Waterfall at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
     Patch Version: 2.0
     Patch:
       - [ load, *kenzan_umod_waterfall ]
