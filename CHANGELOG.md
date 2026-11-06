@@ -1,10 +1,58 @@
 # Changelog
 
+## 2.0 (2026-11-06)
+
+- **Game speed stays correct when the frame rate drops.** The game used to run its logic once per drawn frame, so any frame drop slowed
+  everything down, a big reason why the Gion festival at night felt sluggish at 120 FPS. Logic now runs at a fixed rate on both entries,
+  and when your PC falls behind, the game draws fewer frames instead, down to about 30 FPS. This works as long as your PC keeps up with
+  the logic itself. On a PC that cannot, the game still slows down: use the 60 FPS entry. It does not raise the frame rate.
+- **Fades around loading match the original.** A door, a battle, a mission-start talk and the fade before a chapter-opening cutscene were
+  measured on no patch, 60 and 120: 0.5 s where the original has 0.5 s, not 2 s.
+- **Two-button presses in a struggle get their original time.** Pressing both buttons together was twice as strict at 60 FPS and four times at 120.
+- **Trails on regular attacks are back to their original length and fade.** Weapon and limb trails on normal attacks were a quarter as long
+  at 120 FPS, half at 60, and faded 2 or 4 times too fast. They now gain a point 30 times a second, as in the original, so the tip can look
+  slightly stepped. Measured in one short fight on each build: same point spacing, fade and scroll speed as with no patch.
+- **All 14 minigames run at the full rate, with their logic and physics corrected.** New: Hanafuda, Karuta and Tintiro, and full rate for
+  Mahjong, Shogi and Suika. They also keep their speed when frames drop, like the rest of the game. In Waterfall this keeps the notes on
+  the music. A few motions step 60 times a second.
+- **A sharper picture at any Resolution Scale.** The game's last pass offset the frame by half a pixel with filtering on, a 2x2 blur of
+  every frame. The patch removes the offset. No effect is removed and no sharpening is added.
+- **`sh_iori_ps3.par`:** the optional file now also corrects the edge filter in the game's colour grade, which was set for 1280x720 and
+  reached three times too far at 300%. It now reaches one real pixel at any Resolution Scale.
+- **The game's 20 FPS cutscene sections run at the full frame rate of your entry,** with the same cutscene timing. 1.7 held them at 60 FPS.
+- **Fades run at their original length.** Some fades ran for 2 s instead of 0.5 s at 120 FPS, and the fade-in on entering free roam ran at
+  30 FPS. Short fade-ins after talk missions are longer again, as in the original.
+- **Menus and banners keep their speed when frames are skipped.**
+- **Bowling keeps its timing.** At 60 FPS the throw ran at double speed and the ball left before Kiryu finished, and at 120 FPS the
+  turn could end with the ball short of the pins. Wind-up, ball run and result now match the original on both entries, and the first
+  page of View the Rules no longer goes missing at 120 FPS. The ball rolls at the full frame rate down the lane, and from just
+  before the pins ball and pins step 30 times a second, as in the original. The same straight first ball dropped 8 pins on 36 of 43 throws in the original, 6 of 10 at 60 FPS and 2 of 12 at 120 FPS, where 6 of 12 were strikes against 2 of 43 in the original, so pin results are close at 60 FPS and looser at 120 FPS. Thanks to MrAdam36 for the report.
+  ([#12](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/12))
+- **Mahjong:** CPU turns take as long as in the original. They were about 12% short at 120 FPS.
+- **Tousenkyo:** the menu after View the Rules no longer locks up at 60 FPS.
+- **Tintiro:** the dice replay and the camera moves take as long as in the original. Both ran at double speed at 120 FPS.
+- **K Yabusame:** the throw takes as long as in the original at 120 FPS.
+- **Kamerace:** the turtles' bursts, the turning turtle in the info panel and the quit dialog's flash now run at the original rate.
+- **Karuta:** the opening fades and the opponent's hand move at the original speed.
+- **Suika:** player springs and timers no longer run at double rate at 120 FPS.
+- **Fights:** just guard, sway lockout, standing health regeneration, heat stance, boss mode, gauge battles and grab limits keep the
+  original timing.
+- **Town and cutscenes:** rain drops, the time between NPC sounds in the street and colour grade blends take as long as in the
+  original, and the short grace time after loading a save lasts as long as it should.
+- **Talk menus flash for as long as in the original** in minigames that use them.
+- **The letter scene after loading a save** moves at its original speed.
+- **Fixed since 2.0rc1:** Shogi pieces no longer flicker, the Shogi toss spins at the original rate, and Karuta's camera shake no longer
+  runs at double rate.
+- **Upgrading from 1.7:** your ticks stay. Tick the three new entries, Hanafuda, Karuta and Tintiro.
+
+- **Patches 6, 7, 8 and 9 of the [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch) work with the same entries.**
+  Their EBOOTs and minigame modules are identical, so nothing needs changing.
+
 ## 1.7 (2026-11-05)
 
 - **Support for patch 6 of the [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch).** Patch 6 has a new EBOOT, so the frame-rate entries did not
   apply to it and the game stayed at 30 FPS. The `(English translation)` entries now cover patch 6 as well as the initial
-  release. RPCS3 lists them once per hash, so tick the line ending in your hash, or both. The minigame entries needed no change,
+  release. RPCS3 lists them once per hash, so tick the line ending in your hash. The minigame entries needed no change,
   because patch 6 did not change the minigames. Thanks to Sheev_Approves66 for the report. ([#11](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/11))
 - **The game's 20 FPS cutscene sections now run at 60 FPS.** Six cutscenes drop to 20 FPS for a while, about a minute of the whole
   game, and the longest is Morning After in chapter 8. They now run at 60 FPS on both the 60 and the 120 entry, with the same
@@ -27,7 +75,7 @@
   the reports, logs and testing. ([#7](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/7))
 - **The frame rate no longer drops to 30 after a Revelation in Spirit Tempering.** The original game forgets to undo one
   frame rate change at the end of that demo. That is invisible at 30 FPS, but with the patch the game stayed at 30 until
-  a restart. This fix comes from reading the game's code and has not been played through yet. Thanks to MrAdam36 for the
+  a restart. This fix comes from reading the game's code, and MrAdam36 confirmed it in play. Thanks to MrAdam36 for the
   report. ([#9](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/9))
 
 ## 1.5 (2026-11-02)

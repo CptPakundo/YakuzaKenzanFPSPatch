@@ -1,44 +1,115 @@
-# Yakuza Kenzan! 60/120 FPS Patch for RPCS3
+# Yakuza Kenzan! at 60 and 120 FPS
 
 ![Emulator: RPCS3](https://img.shields.io/badge/emulator-RPCS3-blue)
 ![Game ID: BLJM60064](https://img.shields.io/badge/game%20ID-BLJM60064-lightgrey)
 ![FPS: 60 | 120](https://img.shields.io/badge/FPS-60%20%7C%20120-brightgreen)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-RPCS3 patches that run *Ryu ga Gotoku Kenzan!* at **60 or 120 FPS**, with the game logic kept at its original speed.
-Fights, heat actions, cutscenes, NPCs and minigames play as they did on the PS3, only smoother.
+**Play *Ryu ga Gotoku Kenzan!* on RPCS3 at 60 or 120 FPS, at the game's original speed, with a much cleaner picture.**
 
-Normally, running Kenzan above 30 FPS speeds the whole game up. This patch uses the engine's own frame-rate setting and
-then corrects the code that still counts frames: movement, AI, timers, effects, cameras, menus and the minigames.
+[![Crowd detail from the same Chapter 8 frame: the grid over the blurred background on the left is gone on the right](docs/compare/crop_street_crowd_100pct.png)](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)
 
-## Features
+**[Drag the slider to see it for yourself](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)**. Left: the original picture. Right: 2.0 with the optional file.
 
-- **60 FPS** with no extra emulator settings
-- **120 FPS** for high-refresh displays (needs one setting, see below)
-- Gameplay speed matches the original 30 FPS game, including enemy AI, heat gain, button prompts and cutscene timing
-- Separate fixes for 11 minigames
-- Works with the **[English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch)**, including **patch 6**, and the **Japanese original**
-- The game's 20 FPS cutscene sections run at **60 FPS**, with their timing unchanged
-- Optional replacement shader that cleans up Depth of Field at high resolution
+**[Download 2.0](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest)** · [Install in 5 steps](#installation) · [Optional picture file](#optional-cleaner-depth-of-field-at-high-resolution)
+
+## What you get
+
+- **The whole game at 60 or 120 FPS.** Fights, heat actions, cutscenes, the open world and all 14 minigames.
+- **Everything at its original speed.** Running Kenzan above 30 FPS normally speeds the game up. This patch corrects that, so only the smoothness changes.
+- **Steady speed when the frame rate drops.** If your PC falls behind, the game draws fewer frames and keeps its pace.
+- **A cleaner picture at any Resolution Scale.** The game blurred its own finished frame, and the patch stops that. The optional file also removes the grid pattern from blurred backgrounds.
+- **Works with the [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch)** and the **Japanese original**.
+
+## Installation
+
+1. Download [`imported_patch.yml`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest/download/imported_patch.yml)
+   from the [latest release](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest).
+2. Place it in RPCS3's `patches` folder, keeping the name `imported_patch.yml`:
+
+   | OS | Folder |
+   |---|---|
+   | Windows | `<RPCS3 folder>\patches\` |
+   | Linux | `~/.config/rpcs3/patches/` |
+   | macOS | `~/Library/Application Support/rpcs3/patches/` |
+
+   Already have an `imported_patch.yml`? Merge the two files instead of replacing yours (see below).
+3. In RPCS3, open **Manage → Game Patches** and find *Ryu ga Gotoku Kenzan!*. The list is long because it covers every version of the game, but you only need the entries for yours:
+
+   | Your game | Frame rate: tick **one** | Minigames: tick **all** of these |
+   |---|---|---|
+   | **English translation** | `60 FPS (English translation)` **or** `120 FPS (English translation)` | Every `Minigame fixes` entry ending in `(English translation)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
+   | **Japanese original** | `60 FPS (Japanese original)` **or** `120 FPS (Japanese original)` | Every `Minigame fixes` entry ending in `(Japanese original)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
+
+   English frame-rate entries appear twice, each with a hash added to the name. Tick the one for your version, as ticking the other unticks it:
+   - **Patches 6, 7, 8 and 9:** the hash starting `PPU-0f7ee1f5`
+   - **Initial release:** the hash starting `PPU-5d3cde09`
+
+   Entries for other versions do nothing, so don't worry about them.
+4. Click **Save**. **Chose 60 FPS?** You're done. **Chose 120 FPS?** Do the short [120 FPS setup](#120-fps-setup) first.
+5. Start the game. The first boot takes longer while RPCS3 recompiles the patched code.
+
+<details>
+<summary><b>Merging with an existing <code>imported_patch.yml</code></b></summary>
+
+1. Keep a single `Version: 1.2` line at the very top of your file.
+2. Copy everything below that line from this patch to the end of your file.
+3. A file can only have one `Anchors:` section. If yours already has one, move this patch's indented anchor lines under
+   your existing `Anchors:` line and delete the second `Anchors:` line.
+
+</details>
+
+### Upgrading from 1.7
+
+Replace `imported_patch.yml` and open Game Patches. Your ticks stay. Add the three new entries for your version:
+`Minigame fixes - Hanafuda`, `Minigame fixes - Karuta` and `Minigame fixes - Tintiro`. Without them those three stay at 60 FPS,
+at the right speed.
+
+## 60 FPS setup
+
+Nothing to change. Keep RPCS3's defaults (**Vblank Rate 60**, **Framerate Limiter Auto**).
+
+Since 2.0 the game keeps its speed by drawing fewer frames when your PC falls behind, down to about 30 FPS, as long as your PC keeps
+up with the game logic itself. If it cannot, the game slows down. Very crowded places, such as the Gion festival at night, are the
+hardest, and there the limit is the emulated graphics work, so a lower Resolution Scale may not help. If a place is still too slow,
+untick the `60 FPS` entry to play at the original 30 FPS.
+
+## 120 FPS setup
+
+Right-click the game → **Create Custom Configuration**, then set:
+
+| Setting | Value |
+|---|---|
+| Advanced → Vblank Rate | **120** (required, otherwise the game runs at half speed) |
+| GPU → Framerate Limiter | **Auto** (Off lets the game run far too fast) |
+| VSync | On only with a 120 Hz+ display, otherwise Off |
+
+> [!IMPORTANT]
+> Kenzan runs its logic once per frame, so in earlier versions a frame drop slowed the whole game down. Since 2.0 the game keeps
+> its speed by drawing fewer frames when your PC falls behind, down to about 30 FPS. That helps as long as your PC keeps up with
+> the game logic itself. If it cannot, the game slows down, and in cutscenes the picture falls behind the sound.
+>
+> **On a weaker PC, use the 60 FPS entry.** It asks much less of your CPU. Very crowded places, such as the Gion festival at
+> night, are the hardest, and there the limit is the emulated graphics work, so a lower resolution scale may not help.
+
+Menus, dialogue and the start of heat actions run at 60 FPS, exactly as in the original game. The sections of six cutscenes that
+the original drops to 20 FPS run at the full frame rate of your entry. To switch back, set Vblank Rate to 60 and enable the 60 FPS
+entry instead.
 
 ## Supported versions
 
 | Game version | Executable hash | Entries to enable |
 |---|---|---|
-| [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch) patch 6 (RPCS3 EBOOT) | `PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6` | `... (English translation)` |
+| [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch) patches 6, 7, 8 and 9, same EBOOT (RPCS3 EBOOT) | `PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6` | `... (English translation)` |
 | English fan translation, initial release (RPCS3 EBOOT) | `PPU-5d3cde094c0be606290c4716da497bced59c1256` | `... (English translation)` |
 | Japanese original | `PPU-fc24101547eff0f4307d4f70a0cb76329f11a525` | `... (Japanese original)` |
 
 > [!NOTE]
 > **English translation users:** make sure you followed the translation's *Extra Steps (RPCS3 Only)*: rename `EBOOT.BIN`
-> to `EBOOT PS3.BIN`, then rename `EBOOT RPCS3.BIN` to `EBOOT.BIN`. The patch only applies to the RPCS3 EBOOT, not to
-> the real-PS3 one.
-
-> [!NOTE]
-> Game Patches shows the English `60 FPS` and `120 FPS` entries twice, once per hash, with the hash added to the name. Tick the
-> one ending in your hash, or both: only the matching one applies.
+> to `EBOOT PS3.BIN`, then rename `EBOOT RPCS3.BIN` to `EBOOT.BIN`.
 
 Other English mods and other builds of the translation have a different hash, so the frame-rate entries will not apply to them.
+The translation's older PS3 EBOOT, `PPU-16d1a050...`, is not supported either: use its RPCS3 EBOOT.
 
 Not sure which one you have? Boot the game once, close RPCS3, and search `log\RPCS3.log` for `PPU executable hash`. Use the
 file rather than RPCS3's log window, which can hide that line.
@@ -55,78 +126,42 @@ proves nothing. Check that:
 3. If the hash is not in the table, you have a different build. Please open an issue with that hash and where your English
    patch came from.
 
+You can also find your version without a log. Boot the game once, open `cache/BLJM60064` in your RPCS3 folder and look for the
+folder ending in `-EBOOT.BIN`. If there are several, use the newest:
+
+| Folder | Version |
+|---|---|
+| `ppu-34oXhV146TgHnVhRobSfKm2zKfvG-EBOOT.BIN` | English patches 6, 7, 8 and 9, RPCS3 EBOOT |
+| `ppu-tAZGq5tMbVY9f6aXrmbYWmZfegXC-EBOOT.BIN` | Japanese original |
+
+Any other folder means a build these entries do not cover, unless you are on the translation's initial release, which has its own folder. Please open an issue with its name.
+
 Clearing RPCS3's caches does not help with this.
 
 </details>
 
-## Installation
-
-1. Download [`imported_patch.yml`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest/download/imported_patch.yml)
-   from the [latest release](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest).
-2. Place it in RPCS3's `patches` folder, keeping the name `imported_patch.yml`:
-
-   | OS | Folder |
-   |---|---|
-   | Windows | `<RPCS3 folder>\patches\` |
-   | Linux | `~/.config/rpcs3/patches/` |
-   | macOS | `~/Library/Application Support/rpcs3/patches/` |
-
-   Already have an `imported_patch.yml`? Merge the two files instead of replacing yours (see below).
-3. In RPCS3, open **Manage → Game Patches** and find *Ryu ga Gotoku Kenzan!*. Enable:
-   - **one** frame-rate entry for your version: `60 FPS (...)` **or** `120 FPS (...)`;
-   - every `Minigame fixes - ...` entry for your version. They do nothing on their own, so they are safe to leave on.
-4. Click **Save** and start the game. The first boot takes longer while RPCS3 recompiles the patched code.
-
 <details>
-<summary><b>Merging with an existing <code>imported_patch.yml</code></b></summary>
+<summary><b>A minigame crashes as it starts?</b></summary>
 
-1. Keep a single `Version: 1.2` line at the very top of your file.
-2. Copy everything below that line from this patch to the end of your file.
-3. A file can only have one `Anchors:` section. If yours already has one, move this patch's indented anchor lines under
-   your existing `Anchors:` line and delete the second `Anchors:` line.
+If you used a patch older than 1.6, RPCS3 may still hold a damaged compiled copy of a minigame. Close RPCS3 and delete the folders
+named `ppu-...-mng_...` under `cache/BLJM60064`. RPCS3 rebuilds them the next time you enter that minigame.
 
 </details>
 
-## 60 FPS setup
+<a id="optional-cleaner-depth-of-field-at-high-resolution"></a>
 
-Nothing to change. Keep RPCS3's defaults (**Vblank Rate 60**, **Framerate Limiter Auto**).
+## Optional: cleaner Depth of Field and edges at high resolution
 
-## 120 FPS setup
+**[See the difference with the slider](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)**
 
-Right-click the game → **Create Custom Configuration**, then set:
-
-| Setting | Value |
-|---|---|
-| Advanced → Vblank Rate | **120** (required, otherwise the game runs at half speed) |
-| GPU → Framerate Limiter | **Auto** (Off lets the game run far too fast) |
-| VSync | On only with a 120 Hz+ display, otherwise Off |
-
-> [!IMPORTANT]
-> Your PC has to hold a steady 120 FPS. Kenzan runs its logic once per frame, so frame drops slow the whole game down
-> instead of skipping frames. The same applies to the 60 FPS entry at 60 FPS. Very crowded places, such as the Gion festival
-> at night, are the hardest, and there the limit is the emulated graphics work, so a lower resolution scale may not help.
-
-Menus, dialogue and the start of heat actions run at 60 FPS, exactly as in the original game. The sections of six cutscenes
-that the original drops to 20 FPS run at 60 FPS: they are heavy scenes, and at 120 FPS the picture fell behind the sound. A few
-short sections stay at 30 FPS as in the original, including the Revelation after Spirit Tempering. To switch back, set
-Vblank Rate to 60 and enable the 60 FPS entry instead.
-
-## Optional: cleaner Depth of Field at high resolution
-
-At a high Resolution Scale, the game's Depth of Field blur leaves a fine grid pattern on blurred backgrounds and crowds in
-cutscenes. The blur takes its samples a fixed distance apart, and that spacing shows up as a mesh once the image is sharp enough.
-
-`sh_iori_ps3.par` replaces the game's shader file with a copy in which that one blur shader is rewritten. Depth of Field stays
-on and the grid goes away. It changes 1 of the file's 180 shaders and works with or without the frame-rate entries. It is
-tested on the English translation at 300% Resolution Scale.
+Kenzan's picture was made for 720p. At a high Resolution Scale, its Depth of Field blur leaves a fine grid over blurred backgrounds and crowds in cutscenes, and an edge filter reaches too far and softens every edge. `sh_iori_ps3.par` fixes both: the blur is smooth, edges stay clean, and no effect is removed. Together with the patch, it gives the cleanest picture.
 
 1. Download [`sh_iori_ps3.par`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest/download/sh_iori_ps3.par)
    from the [latest release](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest).
 2. In your game folder, go to `PS3_GAME/USRDIR/bin/shader/` and make a backup of `sh_iori_ps3.par`.
 3. Copy the downloaded file over it.
 
-To undo it, restore your backup. Reinstalling the game puts the original back. This file is separate from the patch: nothing
-in `imported_patch.yml` needs it.
+To undo it, restore your backup. Reinstalling the game or the translation puts the original back, so copy it again afterwards.
 
 ## What gets corrected
 
@@ -136,6 +171,7 @@ in `imported_patch.yml` needs it.
 - **Combat:** movement, strafing, turning, enemy AI (think rate, cooldowns, counter windows), heat gain and drain,
   knockdown and stun durations, grabs, mash prompts, sword slashes and afterimages, hit effects
 - **Heat actions:** timeline speed, button and mash prompts, slow motion, weapon and limb trails, finishing effects
+- **Attack trails:** length, fade and reuse of the weapon and limb trails on normal attacks
 - **Cutscenes and events:** playback speed, slow-motion moments, chapter title cards, talk scenes (each plays once),
   talk cameras, skip timing, movie skip fade-out, subtitles, the 20 FPS sections
 - **Field:** NPC behaviour and crowds, talk arrows above NPCs, dropped items, grass, trees, wind, sea water, splashes,
@@ -143,33 +179,19 @@ in `imported_patch.yml` needs it.
   animated scene parts
 - **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade, restaurant meal and
   shop fades
-- **Minigames:** Bowling, Chohan, K Yabusame (Jiraiya training), Kamerace, Konpira, Mahjong, R Yabusame, Shogi, Suika,
-  Tousenkyo (including the fan's flight), Waterfall, plus scarecrow training and the minigames built into the main program. Hanafuda, Karuta and Chinchirorin
-  already run at a fixed rate and need no patch.
+- **Minigames:** Bowling, Chohan, Hanafuda, K Yabusame (Jiraiya training), Kamerace, Karuta, Konpira, Mahjong, R Yabusame, Shogi,
+  Suika, Tintiro (Chinchirorin), Tousenkyo (including the fan's flight), Waterfall, plus scarecrow training and the minigames built
+  into the main program.
 
 </details>
 
-## Known issues
+## Good to know
 
-- **Longer fades around loading.** Some fades to black at scene changes, for example before chapter-opening cutscenes,
-  can last up to about 2 s at 120 FPS (1 s at 60) instead of about 0.5 s. Purely cosmetic.
-- **Trails on regular attacks.** Some weapon and limb trails on normal attacks are shorter and fade faster than in the
-  original (the same trails in heat actions are fixed).
-- **Very slow storage.** If a cutscene voice line takes several seconds to load, it is skipped sooner than in the
-  original.
-- **Tiny timing differences.** Some timers can be off by less than 1/30 s after menus or dialogue; the walk animation
-  while dragging a grabbed enemy and one branch of two story heat actions can run up to 1/40 s early; the scarecrow
-  training dummies throw about 1-2% slower. A few fades and markers still update 30 times per second, as in the
-  original, rather than being smoothed.
-- **Effects in the former 20 FPS cutscene sections** run at the same pace as the rest of the cutscene, which is 1.5x what the
-  original did in those seconds.
-- **VRR displays.** Frame times vary slightly, and some OLED panels show this as flicker, especially when the frame rate
-  changes.
-- Not every part of the game has been played with the patch yet. If something runs too fast or too slow compared with
-  the original, please [open an issue](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues).
+- **Weaker PC?** Use the 60 FPS entry. It asks much less of your CPU.
+- **VRR displays:** frame times still vary a little, and some OLED panels show this as flicker in crowded places.
+- **Bowling:** the ball rolls at the full frame rate, and pins fall much as in the original.
 
-When reporting, please include your game version, 60 or 120 FPS, what happened and where, and your `RPCS3.log` if the
-game crashed. A patch that loaded shows up in the log as `PAT: Applied patch (... description='60 FPS (...)' ...)`.
+Found something that runs too fast or too slow? Please [open an issue](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues) with your game version, 60 or 120 FPS, what happened and where, and your `RPCS3.log` if the game crashed.
 
 ## Credits
 
@@ -190,4 +212,4 @@ Developed with AI assistance (Claude by Anthropic).
 contains no game files. The optional `sh_iori_ps3.par` is a modified copy of the game's shader file: it is not covered by the
 MIT license, and you need your own copy of the game.
 
-<!-- readme-reviewed: 1.7 -->
+<!-- readme-reviewed: 2.0 -->

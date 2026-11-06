@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kenzan Picture Comparison</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+/* Layout: one full-width slider, a row of zoom spots under it. Single dark look, so the picture reads as the game does. */
+:root {
+  --bg: #14110f; --panel: #221c19; --fg: #f1e9e1; --muted: #b3a79c; --accent: #e0483e; --line: #4a3f39;
+  --display: "Shippori Mincho", "Yu Mincho", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+img{max-width:100%}
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5; }
+.wrap { max-width: 1500px; margin: 0 auto; padding-block: 24px 32px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 14px; }
+h1 { margin: 0; font: 600 clamp(24px, 3.4vw, 36px)/1.2 var(--display); text-wrap: balance; }
+p { margin: 0; color: var(--muted); max-width: 68ch; }
+.stage { position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; background: #000; touch-action: none; cursor: ew-resize; user-select: none; }
+.layer { position: absolute; inset: 0; transform-origin: var(--ox, 50%) var(--oy, 50%); transform: scale(var(--z, 1)); transition: transform .25s ease; }
+.layer img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.clip { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--x, 50%)) 0 0); }
+.bar { position: absolute; top: 0; bottom: 0; left: var(--x, 50%); width: 2px; margin-left: -1px; background: var(--fg); pointer-events: none; }
+.knob { position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: var(--accent); color: var(--fg); display: grid; place-items: center; font-size: 18px; }
+.tag { position: absolute; top: 10px; padding: 3px 9px; background: rgb(20 17 15 / .8); font-size: 13px; pointer-events: none; }
+.tag.l { left: 10px; } .tag.r { right: 10px; }
+#range { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.stage:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.spots { display: flex; flex-wrap: wrap; gap: 8px; }
+button { font: 500 14px var(--body); color: var(--fg); background: var(--panel); border: 1px solid var(--line); padding: 7px 13px; cursor: pointer; }
+button[aria-pressed="true"] { border-color: var(--accent); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .layer { transition: none; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <h1>Ryu ga Gotoku Kenzan! at 300% Resolution Scale</h1>
+  <p>Drag across the picture. Left is the original picture. Right is the 2.0 patch with the optional file. Zoom in on the background, where the blur's grid pattern disappears.</p>
+
+  <div class="stage" id="stage">
+    <div class="layer"><img src="with_optional_file.png" alt="Chapter 8 cutscene with the 2.0 patch and optional file"></div>
+    <div class="clip"><div class="layer"><img src="without_optional_file.png" alt="The same frame as the original game draws it"></div></div>
+    <div class="bar"><div class="knob" aria-hidden="true">&#8596;</div></div>
+    <span class="tag l">Original</span><span class="tag r">2.0 + optional file</span>
+    <input id="range" type="range" min="0" max="100" value="50" aria-label="Comparison position">
+  </div>
+
+  <div class="spots" id="spots">
+    <button data-z="1" data-x="50" data-y="50" aria-pressed="true">Whole frame</button>
+    <button data-z="3" data-x="46" data-y="86" aria-pressed="false">Street crowd</button>
+    <button data-z="3" data-x="50" data-y="30" aria-pressed="false">Bridge and lanterns</button>
+    <button data-z="3" data-x="72" data-y="22" aria-pressed="false">Hair against the bridge</button>
+  </div>
+  <p>Same cutscene frame, in Chapter 8. Hanging lanterns sway a little between captures, and the two images sit 1 to 2 pixels apart. No sharpening was added.</p>
+</div>
+
+<script>
+const stage = document.getElementById('stage'), range = document.getElementById('range');
+const set = v => { v = Math.max(0, Math.min(100, v)); stage.style.setProperty('--x', v + '%'); range.value = v; };
+const fromEvent = e => { const r = stage.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); };
+let down = false;
+stage.addEventListener('pointerdown', e => { down = true; stage.setPointerCapture(e.pointerId); fromEvent(e); range.focus({ preventScroll: true }); });
+stage.addEventListener('pointermove', e => { if (down) fromEvent(e); });
+['pointerup', 'pointercancel'].forEach(t => stage.addEventListener(t, () => { down = false; }));
+range.addEventListener('input', () => set(+range.value));
+document.getElementById('spots').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  document.querySelectorAll('#spots button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  stage.style.setProperty('--z', b.dataset.z);
+  stage.style.setProperty('--ox', b.dataset.x + '%');
+  stage.style.setProperty('--oy', b.dataset.y + '%');
+});
+</script>
+
+</body>
+</html>
