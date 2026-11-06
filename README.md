@@ -9,16 +9,16 @@
 
 [![Crowd detail from the same Chapter 8 frame: the grid over the blurred background on the left is gone on the right](docs/compare/crop_street_crowd_100pct.png)](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)
 
-**[Drag the slider to see it for yourself](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)**. Left: the original picture. Right: 2.0 with the optional file.
+**[Drag the slider to see it for yourself](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)**. Left: the original picture. Right: 2.0 with the Clean picture entry.
 
-**[Download 2.0](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest)** · [Install in 5 steps](#installation) · [Optional picture file](#optional-cleaner-depth-of-field-at-high-resolution)
+**[Download 2.0](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest)** · [Install in 5 steps](#installation) · [Clean picture](#clean-picture)
 
 ## What you get
 
 - **The whole game at 60 or 120 FPS.** Fights, heat actions, cutscenes, the open world and all 14 minigames.
 - **Everything at its original speed.** Running Kenzan above 30 FPS normally speeds the game up. This patch corrects that, so only the smoothness changes.
 - **Steady speed when the frame rate drops.** If your PC falls behind, the game draws fewer frames and keeps its pace.
-- **A cleaner picture at any Resolution Scale.** The game blurred its own finished frame, and the patch stops that. The optional file also removes the grid pattern from blurred backgrounds.
+- **A cleaner picture at any Resolution Scale.** The Clean picture entry stops the game blurring its own finished frame and removes the grid pattern from blurred backgrounds. No files to copy.
 - **Works with the [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch)** and the **Japanese original**.
 
 ## Installation
@@ -36,12 +36,12 @@
    Already have an `imported_patch.yml`? Merge the two files instead of replacing yours (see below).
 3. In RPCS3, open **Manage → Game Patches** and find *Ryu ga Gotoku Kenzan!*. The list is long because it covers every version of the game, but you only need the entries for yours:
 
-   | Your game | Frame rate: tick **one** | Minigames: tick **all** of these |
-   |---|---|---|
-   | **English translation** | `60 FPS (English translation)` **or** `120 FPS (English translation)` | Every `Minigame fixes` entry ending in `(English translation)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
-   | **Japanese original** | `60 FPS (Japanese original)` **or** `120 FPS (Japanese original)` | Every `Minigame fixes` entry ending in `(Japanese original)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
+   | Your game | Frame rate: tick **one** | Picture | Minigames: tick **all** of these |
+   |---|---|---|---|
+   | **English translation** | `60 FPS (English translation)` **or** `120 FPS (English translation)` | `Clean picture (English translation)` | Every `Minigame fixes` entry ending in `(English translation)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
+   | **Japanese original** | `60 FPS (Japanese original)` **or** `120 FPS (Japanese original)` | `Clean picture (Japanese original)` | Every `Minigame fixes` entry ending in `(Japanese original)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
 
-   English frame-rate entries appear twice, each with a hash added to the name. Tick the one for your version, as ticking the other unticks it:
+   English frame-rate and picture entries appear twice, each with a hash added to the name. Tick the ones for your version:
    - **Patches 6, 7, 8 and 9:** the hash starting `PPU-0f7ee1f5`
    - **Initial release:** the hash starting `PPU-5d3cde09`
 
@@ -61,7 +61,10 @@
 
 ### Upgrading from 1.7
 
-Replace `imported_patch.yml` and open Game Patches. Your ticks stay. Add the three new entries for your version:
+> [!NOTE]
+> **Used the optional `sh_iori_ps3.par` before?** You no longer need it: tick the new `Clean picture` entry instead. Your copied file keeps working, or restore your backup of the original.
+
+Replace `imported_patch.yml` and open Game Patches. Your ticks stay. Add the new entries for your version: `Clean picture`, and
 `Minigame fixes - Hanafuda`, `Minigame fixes - Karuta` and `Minigame fixes - Tintiro`. Without them those three stay at 60 FPS,
 at the right speed.
 
@@ -150,18 +153,13 @@ named `ppu-...-mng_...` under `cache/BLJM60064`. RPCS3 rebuilds them the next ti
 
 <a id="optional-cleaner-depth-of-field-at-high-resolution"></a>
 
-## Optional: cleaner Depth of Field and edges at high resolution
+## Clean picture
 
 **[See the difference with the slider](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)**
 
-Kenzan's picture was made for 720p. At a high Resolution Scale, its Depth of Field blur leaves a fine grid over blurred backgrounds and crowds in cutscenes, and an edge filter reaches too far and softens every edge. `sh_iori_ps3.par` fixes both: the blur is smooth, edges stay clean, and no effect is removed. Together with the patch, it gives the cleanest picture.
+Kenzan's picture was made for 720p. At a high Resolution Scale, the game blurs every finished frame, its Depth of Field leaves a fine grid over blurred backgrounds and crowds, and an edge filter softens every edge. The `Clean picture` entry fixes all three, at any Resolution Scale, with no effect removed and no sharpening added. It works with or without the frame-rate entries.
 
-1. Download [`sh_iori_ps3.par`](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest/download/sh_iori_ps3.par)
-   from the [latest release](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest).
-2. In your game folder, go to `PS3_GAME/USRDIR/bin/shader/` and make a backup of `sh_iori_ps3.par`.
-3. Copy the downloaded file over it.
-
-To undo it, restore your backup. Reinstalling the game or the translation puts the original back, so copy it again afterwards.
+No files to copy: the patch corrects the game's shaders as they load. If you copied `sh_iori_ps3.par` from an earlier release, it keeps working, and you can also restore the original.
 
 ## What gets corrected
 
@@ -209,7 +207,6 @@ Developed with AI assistance (Claude by Anthropic).
 ## License
 
 [MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team. The patch
-contains no game files. The optional `sh_iori_ps3.par` is a modified copy of the game's shader file: it is not covered by the
-MIT license, and you need your own copy of the game.
+contains no game files. You need your own copy of the game.
 
 <!-- readme-reviewed: 2.0 -->

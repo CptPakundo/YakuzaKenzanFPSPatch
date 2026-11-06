@@ -2,6 +2,8 @@
 
 ## 2.0 (2026-11-06)
 
+- **Clean picture is its own entry.** It removes the frame blur, the Depth of Field grid and the over-wide edge filter by patching the shaders as they load, so `sh_iori_ps3.par` no longer needs copying. A copied file from an earlier release keeps working.
+
 - **Game speed stays correct when the frame rate drops.** The game used to run its logic once per drawn frame, so any frame drop slowed
   everything down, a big reason why the Gion festival at night felt sluggish at 120 FPS. Logic now runs at a fixed rate on both entries,
   and when your PC falls behind, the game draws fewer frames instead, down to about 30 FPS. This works as long as your PC keeps up with
