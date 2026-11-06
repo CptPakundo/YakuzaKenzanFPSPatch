@@ -62,7 +62,7 @@
 ### Upgrading from 1.7
 
 > [!NOTE]
-> **Used the optional `sh_iori_ps3.par` before?** You no longer need it: tick the new `Clean picture` entry instead. Your copied file keeps working, or restore your backup of the original.
+> **Used the optional `sh_iori_ps3.par` before?** You no longer need it: tick the new `Clean picture` entry instead. You can leave your copied file or restore your backup of the original: either is safe, and the picture is the same.
 
 Replace `imported_patch.yml` and open Game Patches. Your ticks stay. Add the new entries for your version: `Clean picture`, and
 `Minigame fixes - Hanafuda`, `Minigame fixes - Karuta` and `Minigame fixes - Tintiro`. Without them those three stay at 60 FPS,
