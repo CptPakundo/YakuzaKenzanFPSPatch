@@ -11,7 +11,7 @@
 
 **[Drag the slider to see it for yourself](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)**. Left: the original picture. Right: 2.0 with the Clean picture entry.
 
-**[Download 2.0](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest)** · [Install in 5 steps](#installation) · [Clean picture](#clean-picture)
+**[Download 2.1](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest)** · [Install in 5 steps](#installation) · [Clean picture](#clean-picture)
 
 ## What you get
 
@@ -58,6 +58,10 @@
    your existing `Anchors:` line and delete the second `Anchors:` line.
 
 </details>
+
+### Upgrading from 2.0
+
+Replace `imported_patch.yml`. Your ticks stay, and there are no new entries.
 
 ### Upgrading from 1.7
 
@@ -167,7 +171,8 @@ No files to copy: the patch corrects the game's shaders as they load. If you cop
 <summary>Full list</summary>
 
 - **Combat:** movement, strafing, turning, enemy AI (think rate, cooldowns, counter windows), heat gain and drain,
-  knockdown and stun durations, grabs, mash prompts, sword slashes and afterimages, hit effects
+  knockdown and stun durations, grabs, mash prompts, sword slashes and afterimages, hit effects, how far enemy arrows,
+  shuriken, kunai, caltrops and bombs fly
 - **Heat actions:** timeline speed, button and mash prompts, slow motion, weapon and limb trails, finishing effects
 - **Attack trails:** length, fade and reuse of the weapon and limb trails on normal attacks
 - **Cutscenes and events:** playback speed, slow-motion moments, chapter title cards, talk scenes (each plays once),
@@ -209,4 +214,4 @@ Developed with AI assistance (Claude by Anthropic).
 [MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team. The patch
 contains no game files. You need your own copy of the game.
 
-<!-- readme-reviewed: 2.0 -->
+<!-- readme-reviewed: 2.1 -->

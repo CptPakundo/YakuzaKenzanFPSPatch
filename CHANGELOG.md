@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1 (2026-11-07)
+
+- **Enemy arrows and thrown weapons reach you again.** Arrows, shuriken, kunai, caltrops and bombs were thrown with half their
+  strength at 60 FPS and a quarter at 120 FPS, so they dropped short and rarely reached the player. This was most visible with the
+  fire archers shooting across the gap in the final chapter's fortress. They now fly as far as in the original on both entries.
+  Measured against the original: fire arrows in Ultimate Match challenge 2, and the Yellow Oni's shuriken in the final chapter
+  (about 18 m in the original, 3 m on 2.0 at 120 FPS, 17 to 18 m on 2.1). Thanks to MrAdam36 for the report.
+  ([#13](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/13))
+- **Upgrading from 2.0:** replace the file. Your ticks stay, and there are no new entries.
+
 ## 2.0 (2026-11-06)
 
 - **Clean picture is its own entry.** It removes the frame blur, the Depth of Field grid and the over-wide edge filter by patching the shaders as they load, so `sh_iori_ps3.par` no longer needs copying. A copied file from an earlier release keeps working.

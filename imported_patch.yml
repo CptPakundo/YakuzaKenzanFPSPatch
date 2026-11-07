@@ -1,5 +1,5 @@
 Version: 1.2
-# Ryu ga Gotoku Kenzan! (BLJM60064) - 60 FPS and 120 FPS patches for RPCS3, release 2.0
+# Ryu ga Gotoku Kenzan! (BLJM60064) - 60 FPS and 120 FPS patches for RPCS3, release 2.1
 # Author: Pakundo (made with AI assistance).
 # Install: see README.md at https://github.com/CptPakundo/YakuzaKenzanFPSPatch
 
@@ -6765,6 +6765,50 @@ Anchors:
     - [ be32, 0x00000000, 0xfda06e9c ]
     - [ be32, 0x00000000, 0xec0d0024 ]
     - [ be32, 0x00000000, 0xec210032 ]
+    - [ calloc, 0x0019d17c, 7 ]
+    - [ be32, 0x00000000, 0xefff0372 ]
+    - [ be32, 0x00000000, 0x3d001057 ]
+    - [ be32, 0x00000000, 0xc1a88f44 ]
+    - [ be32, 0x00000000, 0x81088f40 ]
+    - [ be32, 0x00000000, 0x2c880001 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xefff0372 ]
+    - [ calloc, 0x001a3c70, 7 ]
+    - [ be32, 0x00000000, 0xec210372 ]
+    - [ be32, 0x00000000, 0x3d201057 ]
+    - [ be32, 0x00000000, 0xc1a98f44 ]
+    - [ be32, 0x00000000, 0x81298f40 ]
+    - [ be32, 0x00000000, 0x2c890001 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xec210372 ]
+    - [ calloc, 0x001a42b4, 9 ]
+    - [ be32, 0x00000000, 0xec210032 ]
+    - [ be32, 0x00000000, 0x3d601057 ]
+    - [ be32, 0x00000000, 0x816b8f40 ]
+    - [ be32, 0x00000000, 0x2c8b0002 ]
+    - [ be32, 0x00000000, 0x41840014 ]
+    - [ be32, 0x00000000, 0xec21082a ]
+    - [ be32, 0x00000000, 0x2c8b0004 ]
+    - [ be32, 0x00000000, 0x41840008 ]
+    - [ be32, 0x00000000, 0xec21082a ]
+    - [ calloc, 0x001a4944, 9 ]
+    - [ be32, 0x00000000, 0xec210032 ]
+    - [ be32, 0x00000000, 0x3d601057 ]
+    - [ be32, 0x00000000, 0x816b8f40 ]
+    - [ be32, 0x00000000, 0x2c8b0002 ]
+    - [ be32, 0x00000000, 0x41840014 ]
+    - [ be32, 0x00000000, 0xec21082a ]
+    - [ be32, 0x00000000, 0x2c8b0004 ]
+    - [ be32, 0x00000000, 0x41840008 ]
+    - [ be32, 0x00000000, 0xec21082a ]
+    - [ calloc, 0x00136b88, 7 ]
+    - [ be32, 0x00000000, 0xec210372 ]
+    - [ be32, 0x00000000, 0x3d201057 ]
+    - [ be32, 0x00000000, 0xc1a98f44 ]
+    - [ be32, 0x00000000, 0x81298f40 ]
+    - [ be32, 0x00000000, 0x2c890001 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xec210372 ]
 
   kenzan60_fades: &kenzan60_fades
     - [ calloc, 0x00090540, 4 ]
@@ -19932,7 +19976,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19962,7 +20006,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19993,7 +20037,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60_image ]
 
@@ -20005,7 +20049,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -20035,7 +20079,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -20066,7 +20110,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60_image ]
 
@@ -20078,7 +20122,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -20108,7 +20152,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -20139,7 +20183,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan60_image ]
 
@@ -20150,7 +20194,7 @@ PRX-XNsmitgPz606vtCkLvNb8vRvX9AF-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Bowling at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_bowling ]
 
@@ -20161,7 +20205,7 @@ PRX-57ReVTFerxWmSMgFHwTLYK4rjE1N-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Chohan at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -20172,7 +20216,7 @@ PRX-pP9Zham087p826Hk70sKYJNoWxNT-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Chohan at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -20183,7 +20227,7 @@ PRX-Zq84zhToR1cemAoszdAdkosWHzT3-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Hanafuda at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_hanafuda ]
 
@@ -20194,7 +20238,7 @@ PRX-7MHf08G4xrd3gmrCasguaj2kNcv5-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Hanafuda at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_hanafuda ]
 
@@ -20205,7 +20249,7 @@ PRX-Fb3bdNkcwgfGuYmvGYiF3TWA6fEY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps K Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_k_yabusame ]
 
@@ -20216,7 +20260,7 @@ PRX-f0weu6khULxCVGx8fEbbe53HUzkX-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Kamerace at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -20227,7 +20271,7 @@ PRX-q1mrtRRcGyttZZiTxXhuwoodrPe5-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Kamerace at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -20238,7 +20282,7 @@ PRX-1r1tJahTswJr9SPAkSsSUFhNnkht-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Karuta at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_karuta ]
 
@@ -20249,7 +20293,7 @@ PRX-P6pH1m5azsvnJupM17sCJmtkkcpc-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Karuta at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_karuta ]
 
@@ -20260,7 +20304,7 @@ PRX-4v6vfey8tm0ryYnm9b7gzn4Q87Sw-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Konpira at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_konpira ]
 
@@ -20271,7 +20315,7 @@ PRX-En8J3J0VsXy9TvwcM1jGqctFMkCt-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Mahjong at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -20282,7 +20326,7 @@ PRX-LvLdxikYP1gQX8TTqVvKaE2tVcQi-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Mahjong at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -20293,7 +20337,7 @@ PRX-NoNkQEKqhGXQmXQ7wKsPv3Udbex4-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps R Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -20304,7 +20348,7 @@ PRX-3yKqt7eQKhq2WZVdcXj8YE88MVqC-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps R Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -20315,7 +20359,7 @@ PRX-hcwkop8vL1Hgbu1xbrkGggHY6gUh-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Shogi at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_shogi ]
 
@@ -20326,7 +20370,7 @@ PRX-6GfRq3LKHpxje21A6KHe3CR7SgCV-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Suika at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -20337,7 +20381,7 @@ PRX-QtVvdP5YjaG64gjKoS7dFRAVKv0o-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Suika at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -20348,7 +20392,7 @@ PRX-cEj0e7sMFHxSVQ2f5xUPAS7ggdNs-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tintiro at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_tintiro ]
 
@@ -20359,7 +20403,7 @@ PRX-0yAWALGFWLRjJ9buNpAjfagrFP67-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tintiro at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_tintiro ]
 
@@ -20370,7 +20414,7 @@ PRX-EHCcuPoQZxcMdSpUNZt9GKq371uf-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tousenkyo at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -20381,7 +20425,7 @@ PRX-Jf80yvVjKj88TgYSZkQCUHfoikfY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tousenkyo at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -20392,7 +20436,7 @@ PRX-Lv45WFxmsAjTCrVkMM2P41jSYRkM-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Waterfall at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
@@ -20403,6 +20447,6 @@ PRX-foe287TiG5SLPPJqJCntzuVYUo94-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Waterfall at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.0
+    Patch Version: 2.1
     Patch:
       - [ load, *kenzan_umod_waterfall ]
