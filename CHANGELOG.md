@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.2 (2026-11-11)
+
+- **Clean camera cuts in cutscenes.** Every camera cut in the in-engine cutscenes showed one frame from a camera half way between the
+  two shots at 60 and 120 FPS, such as a view of the ceiling or a red blur. The game's camera tracks end each block on the next shot's
+  first frame and can also cut inside a block, and 60/120 FPS filled the gap between the two with a blend. The camera now holds the
+  old shot until the cut, as at 30 FPS. Thanks to ElKev118 for the report and for finding the cause in the camera files.
+  ([#14](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/14))
+- **The Talk prompt no longer flickers when the frame rate dips.** When your PC drew fewer frames than the game's tick rate, prompts
+  like Talk next to an NPC kept fading out and back in. They now stay steady. Thanks to RussellA152 for the report.
+  ([#15](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/issues/15))
+- **Clearer entry names for the translation's old version.** Its entries now end in `(English translation, old version)` instead of
+  sharing the names of patch 6+, so Game Patches lists plain names with no hashes added.
+- **Upgrading from 2.1 or 2.0:** replace the file. Your ticks stay, and there are no new entries. Only on the translation's old version
+  (its first release): tick its renamed entries again.
+
 ## 2.1 (2026-11-07)
 
 - **Enemy arrows and thrown weapons reach you again.** Arrows, shuriken, kunai, caltrops and bombs were thrown with half their

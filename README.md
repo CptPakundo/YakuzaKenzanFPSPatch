@@ -11,7 +11,7 @@
 
 **[Drag the slider to see it for yourself](https://cptpakundo.github.io/YakuzaKenzanFPSPatch/compare/)**. Left: the original picture. Right: 2.0 with the Clean picture entry.
 
-**[Download 2.1](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest)** · [Install in 5 steps](#installation) · [Clean picture](#clean-picture)
+**[Download 2.2](https://github.com/CptPakundo/YakuzaKenzanFPSPatch/releases/latest)** · [Install in 5 steps](#installation) · [Clean picture](#clean-picture)
 
 ## What you get
 
@@ -38,12 +38,9 @@
 
    | Your game | Frame rate: tick **one** | Picture | Minigames: tick **all** of these |
    |---|---|---|---|
-   | **English translation** | `60 FPS (English translation)` **or** `120 FPS (English translation)` | `Clean picture (English translation)` | Every `Minigame fixes` entry ending in `(English translation)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
+   | **English translation** (patch 6+) | `60 FPS (English translation)` **or** `120 FPS (English translation)` | `Clean picture (English translation)` | Every `Minigame fixes` entry ending in `(English translation)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
+   | **English translation, old version** (its first release) | `60 FPS (English translation, old version)` **or** `120 FPS (English translation, old version)` | `Clean picture (English translation, old version)` | Same as the row above |
    | **Japanese original** | `60 FPS (Japanese original)` **or** `120 FPS (Japanese original)` | `Clean picture (Japanese original)` | Every `Minigame fixes` entry ending in `(Japanese original)`, and the four with no label: `Bowling`, `K Yabusame`, `Konpira`, `Shogi` |
-
-   English frame-rate and picture entries appear twice, each with a hash added to the name. Tick the ones for your version:
-   - **Patches 6, 7, 8 and 9:** the hash starting `PPU-0f7ee1f5`
-   - **Initial release:** the hash starting `PPU-5d3cde09`
 
    Entries for other versions do nothing, so don't worry about them.
 4. Click **Save**. **Chose 60 FPS?** You're done. **Chose 120 FPS?** Do the short [120 FPS setup](#120-fps-setup) first.
@@ -59,9 +56,9 @@
 
 </details>
 
-### Upgrading from 2.0
+### Upgrading from 2.1 or 2.0
 
-Replace `imported_patch.yml`. Your ticks stay, and there are no new entries.
+Replace `imported_patch.yml`. Your ticks stay, and there are no new entries. Only on the translation's old version (its first release): its entries now end in `(English translation, old version)`, so tick them again.
 
 ### Upgrading from 1.7
 
@@ -107,8 +104,8 @@ entry instead.
 
 | Game version | Executable hash | Entries to enable |
 |---|---|---|
-| [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch) patches 6, 7, 8 and 9, same EBOOT (RPCS3 EBOOT) | `PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6` | `... (English translation)` |
-| English fan translation, initial release (RPCS3 EBOOT) | `PPU-5d3cde094c0be606290c4716da497bced59c1256` | `... (English translation)` |
+| [English fan translation](https://www.moddb.com/mods/ry-ga-gotoku-kenzan-english-translation-patch) patch 6+, same EBOOT (RPCS3 EBOOT) | `PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6` | `... (English translation)` |
+| English fan translation, old version: its first release (RPCS3 EBOOT) | `PPU-5d3cde094c0be606290c4716da497bced59c1256` | `... (English translation, old version)` |
 | Japanese original | `PPU-fc24101547eff0f4307d4f70a0cb76329f11a525` | `... (Japanese original)` |
 
 > [!NOTE]
@@ -138,10 +135,10 @@ folder ending in `-EBOOT.BIN`. If there are several, use the newest:
 
 | Folder | Version |
 |---|---|
-| `ppu-34oXhV146TgHnVhRobSfKm2zKfvG-EBOOT.BIN` | English patches 6, 7, 8 and 9, RPCS3 EBOOT |
+| `ppu-34oXhV146TgHnVhRobSfKm2zKfvG-EBOOT.BIN` | English patch 6+, RPCS3 EBOOT |
 | `ppu-tAZGq5tMbVY9f6aXrmbYWmZfegXC-EBOOT.BIN` | Japanese original |
 
-Any other folder means a build these entries do not cover, unless you are on the translation's initial release, which has its own folder. Please open an issue with its name.
+Any other folder means a build these entries do not cover, unless you are on the translation's old version, which has its own folder. Please open an issue with its name.
 
 Clearing RPCS3's caches does not help with this.
 
@@ -176,11 +173,11 @@ No files to copy: the patch corrects the game's shaders as they load. If you cop
 - **Heat actions:** timeline speed, button and mash prompts, slow motion, weapon and limb trails, finishing effects
 - **Attack trails:** length, fade and reuse of the weapon and limb trails on normal attacks
 - **Cutscenes and events:** playback speed, slow-motion moments, chapter title cards, talk scenes (each plays once),
-  talk cameras, skip timing, movie skip fade-out, subtitles, the 20 FPS sections
+  talk cameras, clean camera cuts, skip timing, movie skip fade-out, subtitles, the 20 FPS sections
 - **Field:** NPC behaviour and crowds, talk arrows above NPCs, dropped items, grass, trees, wind, sea water, splashes,
   rain splashes (on the ground and on characters in cutscenes), lights, particles, cloth, sound fades, doors and other
   animated scene parts
-- **HUD and menus:** health and heat bars, text speed, result screens, map, pause-menu quit fade, restaurant meal and
+- **HUD and menus:** health and heat bars, button prompts such as Talk (steady when frames drop), text speed, result screens, map, pause-menu quit fade, restaurant meal and
   shop fades
 - **Minigames:** Bowling, Chohan, Hanafuda, K Yabusame (Jiraiya training), Kamerace, Karuta, Konpira, Mahjong, R Yabusame, Shogi,
   Suika, Tintiro (Chinchirorin), Tousenkyo (including the fan's flight), Waterfall, plus scarecrow training and the minigames built
@@ -214,4 +211,4 @@ Developed with AI assistance (Claude by Anthropic).
 [MIT](LICENSE). *Ryu ga Gotoku Kenzan!* is © SEGA. This project is not affiliated with SEGA or the RPCS3 team. The patch
 contains no game files. You need your own copy of the game.
 
-<!-- readme-reviewed: 2.1 -->
+<!-- readme-reviewed: 2.2 -->
